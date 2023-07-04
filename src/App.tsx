@@ -1,28 +1,35 @@
-
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  function handleCredentialResponse(response: any){
-    console.log(response)
+  function handleCredentialResponse(response) {
+    if (response.credential) {
+      setIsLoggedIn(true);
+    } else {
+      console.log('Falha no login');
+    }
   }
 
-
+  function handleLogout() {
+    /* global google */
+    google.accounts.id.disableAutoSelect();
+    setIsLoggedIn(false);
+  }
 
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
       client_id: 'YOUR_GOOGLE_CLIENT_ID',
-      callback: handleCredentialResponse
+      callback: handleCredentialResponse,
     });
 
     const parent = document.getElementById('google_btn');
-    google.accounts.id.renderButton(parent, {theme: "filled_blue"});
-  }, [])
+    google.accounts.id.renderButton(parent, { theme: 'filled_blue' });
+  }, []);
 
   return (
     <>
@@ -35,13 +42,19 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div id='google_btn'>
-
-      </div>
+      {isLoggedIn ? (
+        <>
+          <div>
+            <h2>Você está logado!</h2>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        </>
+      ) : (
+        <>
+          <div id="google_btn"></div>
+        </>
+      )}
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -51,7 +64,7 @@ function App() {
       </p>
       <script src="https://accounts.google.com/gsi/client" async></script>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
