@@ -33,15 +33,25 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1> Trabalho Sistemas Distribuidos </h1>
+      <h2> LOGIN </h2>
+      
+      <div id="fonte">
+        <label for="userLogin">Usuario</label>
+        <br></br>
+        <input class="inputs" id="userLogin" type="text" aria-label="Usuário" placeholder="Usuario"></input>
       </div>
-      <h1>Vite + React</h1>
+			
+      <div id="fonte">
+				<label for="userPassword">Senha</label>
+        <br></br>
+				<input class="inputs" id="userPassword" type="password" aria-label="Senha" placeholder="Senha"></input>
+			</div>
+
+      <div>
+        <button class="logar" type="submit" value="Entrar"> Entrar </button>
+      </div>
+
       {isLoggedIn ? (
         <>
           <div>
@@ -53,15 +63,13 @@ function App() {
         <>
           <div id="google_btn"></div>
         </>
+        
       )}
       <div className="card">
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
