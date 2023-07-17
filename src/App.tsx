@@ -37,34 +37,29 @@ function App() {
       <h2> LOGIN </h2>
       
       <div id="fonte">
-        <label for="userLogin">Usuario</label>
+        <label htmlFor="userLogin">Usuario</label>
         <br></br>
-        <input class="inputs" id="userLogin" type="text" aria-label="Usuário" placeholder="Usuario"></input>
+        <input className="inputs" id="userLogin" type="text" aria-label="Usuário" placeholder="Usuario"></input>
       </div>
 			
       <div id="fonte">
-				<label for="userPassword">Senha</label>
+				<label htmlFor="userPassword">Senha</label>
         <br></br>
-				<input class="inputs" id="userPassword" type="password" aria-label="Senha" placeholder="Senha"></input>
+				<input className="inputs" id="userPassword" type="password" aria-label="Senha" placeholder="Senha"></input>
 			</div>
 
       <div>
-        <button class="logar" type="submit" value="Entrar"> Entrar </button>
+        <button className="logar" type="submit" value="Entrar"> Entrar </button>
       </div>
 
       {isLoggedIn ? (
-        <>
+
           <div>
             <h2>Você está logado!</h2>
             <button onClick={handleLogout}>Logout</button>
           </div>
-        </>
-      ) : (
-        <>
-          <div id="google_btn"></div>
-        </>
-        
-      )}
+      ) : (<></>)}
+      <div style={{display: 'flex', paddingTop: '5%', justifyContent: 'center'}} id="google_btn"></div>
       <div className="card">
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
