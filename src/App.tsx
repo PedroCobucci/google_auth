@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
-      client_id: 'YOUR_GOOGLE_CLIENT_ID',
+      client_id: '1016978376547-ammm0m45bra2q14vc5e1cc110eubr65u.apps.googleusercontent.com',
       callback: handleCredentialResponse
     });
 
@@ -49,7 +49,6 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <script src="https://accounts.google.com/gsi/client" async></script>
     </>
   )
 }
