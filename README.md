@@ -62,9 +62,10 @@
 
  Para realizar o login com o Google é necessários algumas configurações.
 
- 1. Configurar a tela de permissão OAuth
- 2. Encontrar seu ID de cliente da API Google
- 3. Carregar a biblioteca de cliente da API Google
+ 1. Configurar a tela de permissão OAuth.
+ 2. Encontrar seu ID de cliente da API Google.
+ 3. Carregar a biblioteca de cliente da API Google.
+ 4. Renderizar o botão "Fazer login com o Google".
 
  ### Configurar a tela de permissão OAuth
 
@@ -92,7 +93,7 @@
 
  ### Adicionar o botão "Fazer login com o Google"
 
- Para renderizar o botão, você pode utilizar o seguinte código:
+ 1. Para renderizar o botão, você pode utilizar o seguinte código:
 
  ```html
    <div id="buttonDiv"></div>
