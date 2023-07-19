@@ -5,7 +5,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
-const clientId = "1016978376547-ammm0m45bra2q14vc5e1cc110eubr65u.apps.googleusercontent.com";
+const clientId = "690018789854-ikfstfb61b3oke5pp8lnm34bl3lk8899.apps.googleusercontent.com";
 const app = express();
 const port = 8000;
 
@@ -28,7 +28,7 @@ function loadUserData() {
         return JSON.parse(data);
     } catch (error) {
         console.error('Erro ao carregar os dados do arquivo JSON:', error);
-        return {};
+        return [];
     }
 }
 

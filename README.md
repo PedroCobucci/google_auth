@@ -37,7 +37,7 @@
  3. Inicie o servidor:
  
      ```bash
-    npm start
+    node server.js
     ```
     
  O servidor estará em execução em http://localhost:8000
