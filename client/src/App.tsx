@@ -30,7 +30,7 @@ function App() {
         setLoggedIn(true);
         setUser(loginData.user);
         fetchUsers();
-        document.getElementById('google_btn').hidden = true;
+        document.getElementById('google_btn').style.visibility = 'hidden';
       } else {
         console.error('Falha na autenticação', loginData.error);
       }
@@ -43,7 +43,7 @@ function App() {
     google.accounts.id.disableAutoSelect();
     setLoggedIn(false);
     setUser(null);
-    document.getElementById('google_btn').hidden = false;
+    document.getElementById('google_btn').style.visibility = 'visible';
   }
 
   useEffect(() => {
@@ -61,19 +61,17 @@ function App() {
   return (
     <div>
       <h1>Login com Google</h1>
-
-      {loggedIn ? (
+      
+      {loggedIn && (
         <div>
           <h2>Usuário Logado:</h2>
           <p>Nome: {user?.name}</p>
           <p>Email: {user?.email}</p>
           <button onClick={handleLogout}>Logout</button>
         </div>
-      ) : (
-        <div>
-          <div style={{ display: 'flex', paddingTop: '5%', justifyContent: 'center' }} id="google_btn"></div>
-        </div>
       )}
+
+      <div style={{ display: 'flex', paddingTop: '5%', justifyContent: 'center' }} id="google_btn"></div>
 
       <h2>Usuários Cadastrados:</h2>
       {users.length > 0 ? (
