@@ -6,9 +6,12 @@ function App() {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
 
+  const server = 'http://localhost:8000';
+  const clientId = '690018789854-ikfstfb61b3oke5pp8lnm34bl3lk8899.apps.googleusercontent.com';
+
   async function fetchUsers() {
     try {
-      const response = await fetch('http://localhost:8000/users');
+      const response = await fetch(`${server}/users`);
       const data = await response.json();
       setUsers(data);
     } catch (error) {
@@ -18,7 +21,7 @@ function App() {
 
   async function handleCredentialResponse(response) {
     try {
-      const loginResponse = await fetch('http://localhost:8000/login', {
+      const loginResponse = await fetch(`${server}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: response.credential }),
@@ -48,7 +51,7 @@ function App() {
 
   useEffect(() => {
     google.accounts.id.initialize({
-      client_id: '1016978376547-ammm0m45bra2q14vc5e1cc110eubr65u.apps.googleusercontent.com',
+      client_id: clientId,
       callback: handleCredentialResponse
     });
 
